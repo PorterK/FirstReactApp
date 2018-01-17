@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import AddNote from './addNote.jsx';
 import ListNotes from './notes/listNotes.jsx';
