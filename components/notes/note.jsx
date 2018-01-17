@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Note extends React.Component {
+export default class Note extends React {
   render() {
-    var style ={
+    const { title, text } = this.props;
+    const style ={
       'width': '95%',
       'padding': '15px',
       'margin': 'auto',
@@ -15,11 +16,9 @@ class Note extends React.Component {
     }
     return (
       <div style={style}>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.text}</p>
+        <h1>{title}</h1>
+        <p>{text}</p>
       </div>
     );
   }
 }
-
-export default Note;
