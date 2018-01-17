@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Note from './note.jsx';
 
-class ListNotes extends React.Component {
+export default class ListNotes extends Component {
     render() {
-      var notes = this.props.notes;
-      var createdNotes = [];
+    // This is a practice called destructuring, very useful for handling object/arr data
+      const { notes } = this.props;
+    
+    // Here instead of using a for loop we can just map the data directly to components
+    // As a side note: I would consider using objects here:
+    // note: {
+    //  title: 'something',
+    //  text: 'something',
+    // }
+    // can be mapped direction to the props like so:
+    // notes.map(data => <Note {...data} />);
+      const createdNotes = notes.map(data => <Note title={data[0]} text={data[1]});
 
-      for(var i = 0; i < notes.length; i++){
-        createdNotes.push(<Note title= {notes[i][0]} text= {notes[i][1]} />)
-      }
       return(
         <div>
           {createdNotes}
@@ -16,5 +23,3 @@ class ListNotes extends React.Component {
       );
     }
 }
-
-export default ListNotes;
